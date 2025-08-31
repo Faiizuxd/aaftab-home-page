@@ -115,6 +115,21 @@ HTML_PAGE = """
     .card:hover {
       box-shadow: 0 0 30px cyan, 0 0 60px cyan;
     }
+
+    /* ==== Mobile Responsive ==== */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 90%;
+        height: auto;
+      }
+      .card img {
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -127,7 +142,7 @@ HTML_PAGE = """
         <h3>Convo 1.0</h3>
         <span>Offline 24/7</span>
         <div class="links">
-          <a href="#" target="_blank">
+          <a href="http://fi6.bot-hosting.net:21384/" target="_blank">
             <i class="fa fa-database"></i>
           </a>
           <a href="#"><i class="fa fa-code"></i></a>
@@ -135,7 +150,7 @@ HTML_PAGE = """
       </div>
     </div>
     
-    <!-- Card 3 -->
+    <!-- Card 2 -->
     <div class="card">
       <img src="https://iili.io/FmFL6le.md.jpg">
       <div class="content">
@@ -148,7 +163,7 @@ HTML_PAGE = """
       </div>
     </div>
 
-    <!-- Card 5 -->
+    <!-- Card 3 -->
     <div class="card">
       <img src="https://iili.io/FmFLgi7.md.jpg">
       <div class="content">
@@ -161,7 +176,7 @@ HTML_PAGE = """
       </div>
     </div>
 
-    <!-- Card 6 -->
+    <!-- Card 4 -->
     <div class="card">
       <img src="https://iili.io/FmFLUVS.md.jpg">
       <div class="content">
