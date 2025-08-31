@@ -155,7 +155,7 @@ HTML_PAGE = """
         <h3>Data</h3>
         <span>Token to Group + UID Getter</span>
         <div class="links">
-          <a href="#" target="_blank"><i class="fa fa-database"></i></a>
+          <a href="http://65.108.103.151:22688/" target="_blank"><i class="fa fa-database"></i></a>
           <a href="#"><i class="fa fa-code"></i></a>
         </div>
       </div>
@@ -168,7 +168,7 @@ HTML_PAGE = """
         <h3>Checker</h3>
         <span>Token Valid / Invalid</span>
         <div class="links">
-          <a href="#" target="_blank"><i class="fa fa-database"></i></a>
+          <a href="http://157.90.181.183:22190/" target="_blank"><i class="fa fa-database"></i></a>
           <a href="#"><i class="fa fa-code"></i></a>
         </div>
       </div>
