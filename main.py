@@ -277,7 +277,7 @@ HTML_PAGE = """
         <h3>Admin</h3>
         <span>Hi Gyz I'm Diisco The Creator Off This Apk "/3 Don't Depand On This apk Made By Bot Hosting '/3 But Nonstop [ Aura ].</span>
         <div class="links">
-          <a href="fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
+          <a href="#"><i class="fa fa-database"></i></a>
           <a href="#"><i class="fa fa-code"></i></a>
         </div>
       </div>
@@ -290,7 +290,7 @@ HTML_PAGE = """
         <h3>Convo 2.0</h3>
         <span>Offline Server</span>
         <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
+          <a href="#"><i class="fa fa-database"></i></a>
           <a href="#"><i class="fa fa-code"></i></a>
         </div>
       </div>
@@ -303,7 +303,7 @@ HTML_PAGE = """
         <h3>Post Server</h3>
         <span>Run IDs + Pages + Profiles</span>
         <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
+          <a href="fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
           <a href="#"><i class="fa fa-code"></i></a>
         </div>
       </div>
@@ -329,7 +329,7 @@ HTML_PAGE = """
         <h3>Data</h3>
         <span>Token to Group + UID Getter</span>
         <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
+          <a href="http://65.108.103.151:22688/"><i class="fa fa-database"></i></a>
           <a href="#"><i class="fa fa-code"></i></a>
         </div>
       </div>
@@ -342,7 +342,7 @@ HTML_PAGE = """
         <h3>Checker</h3>
         <span>Token Valid / Invalid</span>
         <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
+          <a href="">http://157.90.181.183:22190/<i class="fa fa-database"></i></a>
           <a href="#"><i class="fa fa-code"></i></a>
         </div>
       </div>
