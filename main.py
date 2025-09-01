@@ -116,21 +116,21 @@ HTML_PAGE = """
     .card img {
       width: 100%;
       height: 100%;
-      object-fit: contain;   /* image poori dikhayega */
-      background-color: #000; /* black background if empty */
+      object-fit: contain;
+      background-color: #000;
       transition: 0.6s ease;
       filter: brightness(0.9);
     }
 
     /* Hover Effect: Zoom + Glow */
     .card:hover img {
-      transform: scale(1.03);  /* thoda hi zoom kare */
+      transform: scale(1.03);
       filter: brightness(1);
     }
 
     /* Neon Border Glow */
     .card:hover {
-      box-shadow: 0 0 12px cyan, 0 0 25px cyan; /* ab soft glow hai */
+      box-shadow: 0 0 12px cyan, 0 0 25px cyan;
     }
 
     /* Overlay Content */
@@ -173,6 +173,7 @@ HTML_PAGE = """
       font-size: 20px;
       text-shadow: 0 0 10px cyan, 0 0 20px cyan;
       transition: 0.3s;
+      text-decoration: none;
     }
 
     .card .links a:hover {
@@ -271,84 +272,21 @@ HTML_PAGE = """
 
   <div class="container">
 
-    <!-- Card 1 -->
+    <!-- Example Card -->
     <div class="card">
       <img src="https://iili.io/KfAeRgR.md.jpg">
       <div class="content">
         <h3>Admin</h3>
-        <span>Hi Gyz I'm Diisco The Creator Off This Apk "/3 Don't Depand On This apk Made By Bot Hosting '/3 But Nonstop [ Aura ].</span>
+        <span>Hi Gyz I'm Diisco The Creator...</span>
         <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/" target="_blank"><i class="fa fa-database"></i></a>
+          <a href="https://fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
           <a href="#"><i class="fa fa-code"></i></a>
         </div>
       </div>
     </div>
+
+    <!-- Aapke baaki cards yaha... -->
     
-    <!-- Card 2 -->
-    <div class="card">
-      <img src="https://iili.io/KfAe7Jp.md.jpg">
-      <div class="content">
-        <h3>Convo 2.0</h3>
-        <span>Offline Server</span>
-        <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/" target="_blank"><i class="fa fa-database"></i></a>
-          <a href="#"><i class="fa fa-code"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card">
-      <img src="https://iili.io/KfAeweS.md.jpg">
-      <div class="content">
-        <h3>Post Server</h3>
-        <span>Run IDs + Pages + Profiles</span>
-        <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/" target="_blank"><i class="fa fa-database"></i></a>
-          <a href="#"><i class="fa fa-code"></i></a>
-        </div>
-      </div>
-    </div>
-
-     <!-- Card 4 -->
-    <div class="card">
-      <img src="https://iili.io/KfAr8u4.md.jpg">
-      <div class="content">
-        <h3>Post Uid</h3>
-        <span>Post Uid Finder By Link </span>
-        <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/" target="_blank"><i class="fa fa-database"></i></a>
-          <a href="#"><i class="fa fa-code"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="card">
-      <img src="https://iili.io/KfAeEss.md.jpg">
-      <div class="content">
-        <h3>Data</h3>
-        <span>Token to Group + UID Getter</span>
-        <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/" target="_blank"><i class="fa fa-database"></i></a>
-          <a href="#"><i class="fa fa-code"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="card">
-      <img src="https://iili.io/KfAr6P9.md.jpg">
-      <div class="content">
-        <h3>Checker</h3>
-        <span>Token Valid / Invalid</span>
-        <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/" target="_blank"><i class="fa fa-database"></i></a>
-          <a href="#"><i class="fa fa-code"></i></a>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <script>
@@ -375,8 +313,20 @@ HTML_PAGE = """
       document.getElementById('connectionStatus').classList.add('active');
     });
 
-    // Additional check every 5 seconds to catch some edge cases
+    // Additional check every 5 seconds
     setInterval(checkConnection, 5000);
+
+
+    // === Custom Code for Links (Same tab + hide href) ===
+    document.querySelectorAll(".card .links a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault(); // stop default href preview
+        let url = this.getAttribute("href");
+        if (url && url !== "#") {
+          window.location.href = url; // open in same tab
+        }
+      });
+    });
   </script>
 </body>
 </html>
@@ -387,5 +337,4 @@ def home():
     return render_template_string(HTML_PAGE)
 
 if __name__ == "__main__":
-    # For local testing
     app.run(host="0.0.0.0", port=5000)
