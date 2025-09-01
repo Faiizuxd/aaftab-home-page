@@ -303,7 +303,7 @@ HTML_PAGE = """
         <h3>Post Server</h3>
         <span>Run IDs + Pages + Profiles</span>
         <div class="links">
-          <a href="fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
+          <a href="http://fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
           <a href="#"><i class="fa fa-code"></i></a>
         </div>
       </div>
