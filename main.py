@@ -8,6 +8,7 @@ HTML_PAGE = """
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diisco Home</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -95,6 +96,7 @@ HTML_PAGE = """
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
+      width: 100%;
     }
 
     /* 🔥 Card */
@@ -187,6 +189,69 @@ HTML_PAGE = """
     /* Neon Border Glow */
     .card:hover {
       box-shadow: 0 0 30px cyan, 0 0 60px cyan;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .container {
+        gap: 1.5rem;
+      }
+      
+      .card {
+        width: 100%;
+        max-width: 320px;
+        height: 380px;
+      }
+      
+      .card .content {
+        padding: 15px;
+      }
+      
+      .card h3 {
+        font-size: 18px;
+      }
+      
+      .card span {
+        font-size: 12px;
+      }
+      
+      .connection-status i {
+        font-size: 3.5rem;
+      }
+      
+      .connection-status h2 {
+        font-size: 1.5rem;
+      }
+      
+      .connection-status p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        margin-bottom: 1.5rem;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .card {
+        height: 350px;
+      }
+      
+      .card .content {
+        padding: 12px;
+      }
     }
   </style>
 </head>
