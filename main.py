@@ -277,7 +277,7 @@ HTML_PAGE = """
         <h3>Admin</h3>
         <span>Hi Gyz I'm Diisco The Creator Off This Apk "/3 Don't Depand On This apk Made By Bot Hosting '/3 But Nonstop [ Aura ].</span>
         <div class="links">
-          <a href="https://fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
+          <a href="fi6.bot-hosting.net:21384/"><i class="fa fa-database"></i></a>
           <a href="#"><i class="fa fa-code"></i></a>
         </div>
       </div>
