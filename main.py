@@ -38,7 +38,7 @@ APPROVAL_PAGE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Device Authorization</title>
+    <title>Secure Access</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset & Base */
@@ -50,23 +50,23 @@ APPROVAL_PAGE = """
         }
 
         :root {
-            --primary-dark: #121212;
-            --secondary-dark: #1e1e1e;
-            --card-dark: #2d2d2d;
-            --accent-blue: #5d8aff;
-            --accent-purple: #9d4edd;
-            --accent-green: #00b894;
-            --accent-orange: #f39c12;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --text-muted: #888888;
-            --shadow-color: rgba(0, 0, 0, 0.3);
-            --glow-color: rgba(93, 138, 255, 0.3);
+            --primary-green: #0a2f1d;
+            --secondary-green: #14532d;
+            --card-green: #1e3a2d;
+            --accent-teal: #0d9488;
+            --accent-lime: #84cc16;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --text-primary: #f0fdf4;
+            --text-secondary: #bbf7d0;
+            --text-muted: #86efac;
+            --shadow-color: rgba(6, 78, 59, 0.2);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--primary-dark), #1a1a2e);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--primary-green), #064e3b);
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
@@ -75,212 +75,271 @@ APPROVAL_PAGE = """
         .container {
             max-width: 100%;
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        /* Header Image */
+        .header-image {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 2px solid rgba(20, 83, 45, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         /* Auth Card */
         .auth-card {
-            background: rgba(30, 30, 30, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 30px;
+            background: rgba(30, 58, 45, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
             width: 100%;
-            max-width: 500px;
-            border: 1px solid rgba(93, 138, 255, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            text-align: center;
+            max-width: 380px;
+            border: 1px solid rgba(13, 148, 136, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .logo i {
-            font-size: 40px;
-            color: var(--accent-blue);
-            background: rgba(93, 138, 255, 0.1);
-            padding: 15px;
-            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 15px;
         }
 
         .logo h1 {
-            font-size: 28px;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .logo p {
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 400;
         }
 
         /* Device ID Display */
         .device-id-container {
-            background: rgba(93, 138, 255, 0.1);
-            border: 2px dashed rgba(93, 138, 255, 0.3);
-            border-radius: 16px;
-            padding: 25px;
-            margin: 25px 0;
-            position: relative;
+            background: rgba(13, 148, 136, 0.1);
+            border: 1px solid rgba(13, 148, 136, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
         }
 
         .device-id-label {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(30, 30, 30, 0.95);
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            color: var(--accent-blue);
-            border: 1px solid rgba(93, 138, 255, 0.3);
+            display: block;
+            font-size: 12px;
+            color: var(--accent-teal);
+            margin-bottom: 6px;
+            font-weight: 500;
         }
 
         .device-id {
-            font-family: 'Courier New', monospace;
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--accent-blue);
+            font-family: 'SF Mono', 'Courier New', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
             word-break: break-all;
-            padding: 10px;
+            padding: 8px 10px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-emerald);
         }
 
         /* Status Messages */
         .status-container {
-            margin: 25px 0;
-            padding: 20px;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.05);
+            margin: 15px 0;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            text-align: center;
+        }
+
+        .status-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
         }
 
         .status-title {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .status-pending {
-            color: var(--accent-orange);
+            color: var(--accent-amber);
         }
 
         .status-approved {
-            color: var(--accent-green);
+            color: var(--accent-emerald);
         }
 
         .status-rejected {
-            color: #ff4757;
+            color: var(--accent-rose);
         }
 
         .status-message {
             color: var(--text-secondary);
-            line-height: 1.6;
-            font-size: 15px;
+            line-height: 1.4;
+            font-size: 13px;
+            opacity: 0.9;
         }
 
         /* Buttons */
         .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             width: 100%;
             border: none;
-            margin: 10px 0;
+            margin: 6px 0;
             text-decoration: none;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal));
             color: white;
-            box-shadow: 0 8px 25px rgba(93, 138, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(93, 138, 255, 0.6);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
         }
 
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--accent-blue);
-            color: var(--accent-blue);
+            border: 1px solid var(--accent-emerald);
+            color: var(--accent-emerald);
         }
 
         .btn-outline:hover {
-            background: rgba(93, 138, 255, 0.1);
+            background: rgba(16, 185, 129, 0.08);
         }
 
         /* Admin Link */
         .admin-link {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 13px;
+            top: 12px;
+            right: 12px;
+            color: var(--text-muted);
+            font-size: 11px;
             text-decoration: none;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.07);
+            padding: 5px 10px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s;
         }
 
         .admin-link:hover {
-            color: white;
-            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* Info Text */
         .info-text {
             color: var(--text-muted);
-            font-size: 13px;
-            margin-top: 20px;
-            line-height: 1.5;
+            font-size: 11px;
+            margin-top: 12px;
+            line-height: 1.3;
+            text-align: center;
+            padding: 0 8px;
         }
 
         .loading {
             display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            border-top-color: var(--accent-blue);
+            border-top-color: var(--accent-emerald);
             animation: spin 1s ease-in-out infinite;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 10px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .auth-card {
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        /* Copy Indicator */
+        .copy-indicator {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(30, 58, 45, 0.9);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-emerald);
+            color: var(--accent-emerald);
+            font-size: 13px;
+            z-index: 1000;
+            display: none;
+            animation: fadeIn 0.3s;
+        }
     </style>
 </head>
 <body>
     <a href="/admin" class="admin-link">
-        <i class="fas fa-lock"></i> Admin Panel
+        <i class="fas fa-lock"></i> Admin
     </a>
     
     <div class="container">
         <div class="auth-card">
+            <!-- Header Image - Full Width -->
+            <img src="https://i.pinimg.com/originals/fe/7d/22/fe7d22e8088f2585aac9eb3c3bd6d62e.jpg" alt="Security Shield" class="header-image">
+            
             <div class="logo">
-                <i class="fas fa-shield-alt"></i>
-                <h1>Server Access</h1>
+                <h1>Secure Access</h1>
+                <p>Device verification system</p>
             </div>
 
             <div class="device-id-container">
-                <div class="device-id-label">DEVICE ID</div>
+                <span class="device-id-label">DEVICE ID</span>
                 <div class="device-id">{{ device_id }}</div>
             </div>
 
             {% if status == "pending" %}
                 <div class="status-container">
-                    <div class="status-title status-pending">⏳ Pending Approval</div>
-                    <p class="status-message">Your device is awaiting admin approval. Please contact the administrator with your Device ID.</p>
+                    <div class="status-icon status-pending">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="status-title status-pending">Pending</div>
+                    <p class="status-message">Awaiting admin approval. Contact with Device ID.</p>
                 </div>
                 <a href="https://www.facebook.com/profile.php?id=61577314876827" class="btn btn-outline">
                     <i class="fas fa-headset"></i> Contact Admin
@@ -288,60 +347,89 @@ APPROVAL_PAGE = """
                 
             {% elif status == "approved" %}
                 <div class="status-container">
-                    <div class="status-title status-approved">✅ Access Granted</div>
-                    <p class="status-message">Your device has been approved! Redirecting to server dashboard...</p>
+                    <div class="status-icon status-approved">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="status-title status-approved">Approved</div>
+                    <p class="status-message">Access granted. Redirecting...</p>
                 </div>
                 <a href="/dashboard" class="btn btn-primary" id="dashboardBtn">
-                    <i class="fas fa-rocket"></i> ACCESS DASHBOARD
+                    <i class="fas fa-rocket"></i> Dashboard
                 </a>
                 
             {% elif status == "rejected" %}
                 <div class="status-container">
-                    <div class="status-title status-rejected">❌ Access Denied</div>
-                    <p class="status-message">Your device authorization was rejected. Contact admin for reproval.</p>
+                    <div class="status-icon status-rejected">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="status-title status-rejected">Denied</div>
+                    <p class="status-message">Access rejected. Contact support.</p>
                 </div>
                 <a href="https://www.facebook.com/profile.php?id=100088520533630" class="btn btn-outline">
-                    <i class="fas fa-headset"></i> Contact Support
+                    <i class="fas fa-headset"></i> Support
                 </a>
                 
             {% else %}
                 <form method="POST" id="approvalForm">
                     <input type="hidden" name="device_id" value="{{ device_id }}">
                     <button type="submit" class="btn btn-primary" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> REQUEST ACCESS
+                        <i class="fas fa-paper-plane"></i> Request Access
                     </button>
                 </form>
                 <p class="info-text">
                     <i class="fas fa-info-circle"></i> 
-                    Note: Save your Device ID for future reference. Clearing browser data will revoke access.
+                    Save Device ID. Clearing data revokes access.
                 </p>
             {% endif %}
+            
+            <div class="footer">
+                Secure Access &copy; 2023
+            </div>
         </div>
     </div>
+
+    <!-- Copy Indicator -->
+    <div class="copy-indicator" id="copyIndicator">Copied!</div>
 
     <script>
         // Auto-redirect if approved
         {% if status == "approved" %}
         setTimeout(function() {
             document.getElementById('dashboardBtn').click();
-        }, 2000);
+        }, 1200);
         {% endif %}
 
         // Form submission animation
         document.getElementById('approvalForm')?.addEventListener('submit', function(e) {
             const btn = document.getElementById('submitBtn');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<span class="loading"></span> Processing...';
+            btn.innerHTML = '<span class="loading"></span> Processing';
             btn.disabled = true;
         });
 
-        // Copy device ID function
-        function copyDeviceId() {
+        // Copy device ID on click
+        document.querySelector('.device-id')?.addEventListener('click', function() {
             const deviceId = "{{ device_id }}";
             navigator.clipboard.writeText(deviceId).then(() => {
-                alert('Device ID copied to clipboard!');
+                // Show copy indicator
+                const indicator = document.getElementById('copyIndicator');
+                indicator.style.display = 'block';
+                
+                setTimeout(() => {
+                    indicator.style.display = 'none';
+                }, 1500);
             });
-        }
+        });
+
+        // Add subtle hover effect to card
+        document.querySelector('.auth-card').addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.3)';
+        });
+
+        document.querySelector('.auth-card').addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.25)';
+        });
     </script>
 </body>
 </html>
@@ -355,7 +443,7 @@ MODERN_DASHBOARD = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Server Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <linke.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset & Base - Compact */
         * {
@@ -369,7 +457,7 @@ MODERN_DASHBOARD = """
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #0a1a0f 0%, #0c2c1a 100%);
             color: #ffffff;
-            min-height: 100vh;
+            min-heighh;
             overflow-x: hidden;
             font-size: 14px;
             line-height: 1.4;
