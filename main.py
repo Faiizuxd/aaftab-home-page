@@ -16,7 +16,7 @@ app.secret_key = os.environ.get('SECRET_KEY') or 'your-secret-key-here-' + ''.jo
 
 # ================= CONFIGURATION =================
 
-ADMIN_PASSWORD = "BROTH3R_H00D"  # Change this!
+ADMIN_PASSWORD = "STUN3R_X_FAIZU"  # Change this!
 DATA_FILE = "approved_data.json"
 
 # Bot Panel Admin Credentials (Optional for your dashboard)
@@ -1339,13 +1339,22 @@ ADMIN_PANEL_HTML = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #8A2BE2;
-            --secondary: #FF69B4;
-            --dark: #1A1A2E;
-            --light: #f8f9fa;
+            --primary-dark: #0a2f1d;
+            --secondary-dark: #14532d;
+            --card-green: #1e3a2d;
+            --accent-teal: #0d9488;
+            --accent-lime: #84cc16;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --text-primary: #f0fdf4;
+            --text-secondary: #bbf7d0;
+            --text-muted: #86efac;
         }
+
         * {
             margin: 0;
             padding: 0;
@@ -1353,200 +1362,378 @@ ADMIN_PANEL_HTML = """
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark), #064e3b);
+            color: var(--text-primary);
             min-height: 100vh;
-            padding: 20px;
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
         }
         
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+        
+        /* Header Styles */
+        .header-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(20, 83, 45, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
         .header {
             text-align: center;
             margin-bottom: 30px;
         }
         
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
         }
         
-        .back-link {
-            color: white;
-            text-decoration: none;
+        .header p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Login Page Styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: rgba(30, 58, 45, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            width: 100%;
+            max-width: 420px;
+            border: 1px solid rgba(13, 148, 136, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .login-header {
+            margin-bottom: 25px;
+        }
+
+        .login-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
             margin-bottom: 20px;
-            display: inline-block;
+            border: 2px solid rgba(20, 83, 45, 0.5);
+        }
+
+        .login-form {
+            margin-top: 20px;
+        }
+        
+        .login-form input {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid rgba(13, 148, 136, 0.3);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-primary);
+            font-size: 14px;
+            transition: border 0.3s;
+        }
+        
+        .login-form input:focus {
+            outline: none;
+            border-color: var(--accent-emerald);
+        }
+        
+        .login-form button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .login-form button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Table Styles */
+        .section-title {
+            font-size: 20px;
+            margin: 30px 0 15px 0;
+            color: var(--text-primary);
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(13, 148, 136, 0.3);
+        }
+        
+        .table-container {
+            background: rgba(30, 58, 45, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 1px solid rgba(13, 148, 136, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
         
         table {
             width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 30px;
+            border-collapse: collapse;
         }
         
         th, td {
             padding: 15px;
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         th {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(13, 148, 136, 0.15);
+            color: var(--accent-teal);
+            font-weight: 600;
+            font-size: 14px;
         }
         
+        td {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        
+        .empty-row {
+            text-align: center;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Button Styles */
         .btn {
-            padding: 8px 15px;
+            padding: 8px 16px;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
-            margin: 0 5px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
         
         .btn-approve {
-            background: #00B894;
+            background: linear-gradient(135deg, var(--accent-emerald), #0d9488);
             color: white;
         }
         
         .btn-reject {
-            background: #D63031;
+            background: linear-gradient(135deg, var(--accent-rose), #dc2626);
             color: white;
         }
         
-        .login-form {
-            max-width: 400px;
-            margin: 100px auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .action-form {
+            display: inline;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Footer */
+        .footer {
             text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        .login-form input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-        }
-        
-        .login-form button {
-            width: 100%;
-            padding: 12px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .table-container, .login-card {
+            animation: fadeIn 0.4s ease-out;
         }
     </style>
 </head>
 <body>
     {% if not logged_in %}
-    <div class="login-form">
-        <h2>Admin Login</h2>
-        <form method="POST">
-            <input type="password" name="password" placeholder="Admin Password" required>
-            <button type="submit">Login</button>
-        </form>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="https://i.pinimg.com/originals/cf/da/23/cfda23e905a14b316ca3eb230827e039.jpg" alt="Admin Security" class="login-image">
+                <h1>Admin Login</h1>
+                <p>Secure access control panel</p>
+            </div>
+            <form method="POST" class="login-form">
+                <input type="password" name="password" placeholder="Enter admin password" required>
+                <button type="submit">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+        </div>
     </div>
     {% else %}
     <div class="container">
-        <a href="/" class="back-link">← Back to Main</a>
+        <a href="/" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Main
+        </a>
+        
+        <img src="https://i.pinimg.com/originals/0c/b5/4f/0cb54f43a57ea25f6f1ee4ca4947f056.jpg" alt="Admin Dashboard" class="header-image">
+        
         <div class="header">
-            <h1>Admin Panel</h1>
-            <p>Manage Device Approvals</p>
+            <h1>Admin Control Panel</h1>
+            <p>Manage device authorizations and access control</p>
         </div>
 
-        <h2>Pending Approvals</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Device ID</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for device in pending %}
-                <tr>
-                    <td>{{ device }}</td>
-                    <td>
-                        <form method="POST" action="/admin/approve" style="display: inline;">
-                            <input type="hidden" name="device_id" value="{{ device }}">
-                            <button type="submit" class="btn btn-approve">Approve</button>
-                        </form>
-                        <form method="POST" action="/admin/reject" style="display: inline;">
-                            <input type="hidden" name="device_id" value="{{ device }}">
-                            <button type="submit" class="btn btn-reject">Reject</button>
-                        </form>
-                    </td>
-                </tr>
-                {% else %}
-                <tr>
-                    <td colspan="2" style="text-align: center;">No pending devices</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h2 class="section-title">⏳ Pending Approvals</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Device ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for device in pending %}
+                    <tr>
+                        <td>{{ device }}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <form method="POST" action="/admin/approve" class="action-form">
+                                    <input type="hidden" name="device_id" value="{{ device }}">
+                                    <button type="submit" class="btn btn-approve">
+                                        <i class="fas fa-check"></i> Approve
+                                    </button>
+                                </form>
+                                <form method="POST" action="/admin/reject" class="action-form">
+                                    <input type="hidden" name="device_id" value="{{ device }}">
+                                    <button type="submit" class="btn btn-reject">
+                                        <i class="fas fa-times"></i> Reject
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="2" class="empty-row">No pending devices</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-        <h2>Approved Devices</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Device ID</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for device in approved %}
-                <tr>
-                    <td>{{ device }}</td>
-                    <td>
-                        <form method="POST" action="/admin/reject" style="display: inline;">
-                            <input type="hidden" name="device_id" value="{{ device }}">
-                            <button type="submit" class="btn btn-reject">Revoke</button>
-                        </form>
-                    </td>
-                </tr>
-                {% else %}
-                <tr>
-                    <td colspan="2" style="text-align: center;">No approved devices</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h2 class="section-title">✅ Approved Devices</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Device ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for device in approved %}
+                    <tr>
+                        <td>{{ device }}</td>
+                        <td>
+                            <form method="POST" action="/admin/reject" class="action-form">
+                                <input type="hidden" name="device_id" value="{{ device }}">
+                                <button type="submit" class="btn btn-reject">
+                                    <i class="fas fa-ban"></i> Revoke
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="2" class="empty-row">No approved devices</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-        <h2>Rejected Devices</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Device ID</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for device in rejected %}
-                <tr>
-                    <td>{{ device }}</td>
-                    <td>
-                        <form method="POST" action="/admin/approve" style="display: inline;">
-                            <input type="hidden" name="device_id" value="{{ device }}">
-                            <button type="submit" class="btn btn-approve">Approve</button>
-                        </form>
-                    </td>
-                </tr>
-                {% else %}
-                <tr>
-                    <td colspan="2" style="text-align: center;">No rejected devices</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h2 class="section-title">❌ Rejected Devices</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Device ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for device in rejected %}
+                    <tr>
+                        <td>{{ device }}</td>
+                        <td>
+                            <form method="POST" action="/admin/approve" class="action-form">
+                                <input type="hidden" name="device_id" value="{{ device }}">
+                                <button type="submit" class="btn btn-approve">
+                                    <i class="fas fa-check"></i> Approve
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="2" class="empty-row">No rejected devices</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>Admin Panel • Secure Access System &copy; 2023</p>
+        </div>
     </div>
     {% endif %}
 </body>
