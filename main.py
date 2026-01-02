@@ -357,7 +357,7 @@ MODERN_DASHBOARD = """
     <title>Server Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset & Base */
+        /* Reset & Base - Compact */
         * {
             margin: 0;
             padding: 0;
@@ -366,31 +366,31 @@ MODERN_DASHBOARD = """
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #0a1a0f 0%, #0c2c1a 100%);
             color: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
+            font-size: 14px;
+            line-height: 1.4;
         }
 
         .container {
             max-width: 100%;
             min-height: 100vh;
-            padding: 12px;
-            padding-bottom: 70px;
+            padding: 10px;
+            padding-bottom: 60px;
         }
 
-        /* Header */
+        /* Header - Compact */
         .app-header {
             background: rgba(18, 38, 24, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 15px;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 30, 15, 0.4);
-            position: relative;
-            z-index: 10;
+            backdrop-filter: blur(10px);
+            padding: 12px 15px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 20, 10, 0.2);
         }
 
         .header-content {
@@ -402,87 +402,87 @@ MODERN_DASHBOARD = """
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
 
         .logo i {
-            font-size: 24px;
+            font-size: 20px;
             color: #4caf50;
-            background: rgba(76, 175, 80, 0.15);
-            padding: 10px;
-            border-radius: 14px;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 8px;
+            border-radius: 12px;
         }
 
         .logo h1 {
-            font-size: 20px;
-            font-weight: 700;
-            background: linear-gradient(45deg, #4caf50, #66bb6a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
+            font-size: 16px;
+            font-weight: 600;
+            color: #4caf50;
         }
 
         .status-indicator {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 13px;
+            gap: 6px;
+            font-size: 11px;
             color: #a5d6a7;
             background: rgba(76, 175, 80, 0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
-            border: 1px solid rgba(76, 175, 80, 0.2);
+            padding: 5px 10px;
+            border-radius: 15px;
         }
 
         .status-dot {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: #4caf50;
-            box-shadow: 0 0 15px #4caf50;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
 
-        /* Banner GIF Section */
-        .gif-banner-section {
-            margin: 15px 0 20px;
+        /* Section Title - Small */
+        .section-title {
+            font-size: 14px;
+            margin: 15px 0 10px;
+            color: #e8f5e9;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .gif-banner-grid {
+        /* Server Cards - Compact */
+        .servers-grid {
             display: grid;
-            gap: 15px;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 12px;
         }
 
-        @media (max-width: 768px) {
-            .gif-banner-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Banner Card */
-        .banner-card {
-            border-radius: 20px;
+        /* Server Card Container */
+        .server-card-container {
+            background: rgba(30, 50, 35, 0.8);
+            border-radius: 16px;
             overflow: hidden;
-            height: 140px;
+            border: 1px solid rgba(76, 175, 80, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            margin-bottom: 8px;
+        }
+
+        .server-card-container:hover {
+            transform: translateY(-2px);
+            border-color: rgba(76, 175, 80, 0.3);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.2);
+        }
+
+        /* Banner - Small & Compact */
+        .card-banner {
+            height: 80px;
             position: relative;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
         }
 
-        .banner-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
-            border-color: rgba(76, 175, 80, 0.4);
-        }
-
-        /* GIF Overlay */
         .gif-overlay {
             position: absolute;
             top: 0;
@@ -491,254 +491,192 @@ MODERN_DASHBOARD = """
             bottom: 0;
             background-size: cover;
             background-position: center;
-            z-index: 1;
-            transition: transform 0.5s ease;
         }
 
-        .banner-card:hover .gif-overlay {
-            transform: scale(1.05);
-        }
-
-        /* First Banner - Cookie Server */
-        .banner-card[data-server="cookie"] .gif-overlay {
+        /* Banner GIFs */
+        .server-card-container[data-server="cookie"] .gif-overlay {
             background-image: url('https://i.pinimg.com/originals/5e/16/e3/5e16e3ab2987659e0b58baebb227162e.gif');
         }
 
-        /* Second Banner - End To End Server */
-        .banner-card[data-server="endtoend"] .gif-overlay {
+        .server-card-container[data-server="endtoend"] .gif-overlay {
             background-image: url('https://i.pinimg.com/originals/80/b1/cf/80b1cf27df714a3ba0da909fd3f3f221.gif');
         }
 
-        /* Third Banner - WhatsApp Server */
-        .banner-card[data-server="whatsapp"] .gif-overlay {
+        .server-card-container[data-server="whatsapp"] .gif-overlay {
             background-image: url('https://i.pinimg.com/originals/64/9c/66/649c668b6c1208cce1c7da2b539f8d72.gif');
         }
 
-        /* Banner Content */
-        .banner-content {
+        /* Banner Overlay */
+        .banner-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 20px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-            z-index: 2;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 8px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .banner-text h3 {
-            font-size: 18px;
-            font-weight: 700;
+        .banner-title h3 {
+            font-size: 14px;
             color: white;
-            margin-bottom: 5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-        }
-
-        .banner-text p {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .banner-badge {
             background: rgba(76, 175, 80, 0.9);
             color: white;
-            padding: 8px 15px;
-            border-radius: 15px;
-            font-size: 13px;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
+            transition: all 0.2s ease;
         }
 
         .banner-badge:hover {
             background: rgba(102, 187, 106, 0.9);
-            transform: scale(1.05);
         }
 
-        /* Section Title */
-        .section-title {
-            font-size: 18px;
-            margin: 25px 0 15px;
-            color: #e8f5e9;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding-left: 5px;
-        }
-
-        /* Server Cards Grid */
-        .servers-grid {
-            display: grid;
-            gap: 15px;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-
-        /* Server Card */
+        /* Server Card Content - Compact */
         .server-card {
-            background: rgba(30, 50, 35, 0.8);
-            border-radius: 18px;
-            padding: 20px;
-            border: 1px solid rgba(76, 175, 80, 0.2);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .server-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #4caf50, #66bb6a);
-            border-radius: 18px 18px 0 0;
-        }
-
-        .server-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(76, 175, 80, 0.4);
-            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.2);
+            padding: 12px;
         }
 
         .card-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 10px;
+            margin-bottom: 10px;
         }
 
         .server-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 18px;
             background: rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .server-card[data-server="cookie"] .server-icon {
+        .server-card-container[data-server="cookie"] .server-icon {
             color: #ff9800;
             background: rgba(255, 152, 0, 0.1);
         }
 
-        .server-card[data-server="endtoend"] .server-icon {
+        .server-card-container[data-server="endtoend"] .server-icon {
             color: #9c27b0;
             background: rgba(156, 39, 176, 0.1);
         }
 
-        .server-card[data-server="whatsapp"] .server-icon {
+        .server-card-container[data-server="whatsapp"] .server-icon {
             color: #25d366;
             background: rgba(37, 211, 102, 0.1);
         }
 
         .card-header h3 {
-            font-size: 18px;
+            font-size: 15px;
             flex: 1;
             color: #ffffff;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .status-badge {
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .status-badge.online {
             color: #4caf50;
-            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
         }
 
         .status-badge.offline {
             color: #ff9800;
-            box-shadow: 0 0 10px rgba(255, 152, 0, 0.3);
         }
 
         .card-body {
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
         .server-description {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.5;
-            margin-bottom: 15px;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.4;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .server-stats {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
         .stat {
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 13px;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 8px 12px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 5px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 5px 8px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .stat i {
-            font-size: 14px;
+            font-size: 11px;
             color: #4caf50;
         }
 
-        /* Buttons */
+        /* Server Button - Compact */
         .server-btn {
             background: linear-gradient(135deg, #2e7d32, #4caf50);
             color: white;
             border: none;
-            padding: 14px 20px;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 6px;
             width: 100%;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 3px 10px rgba(76, 175, 80, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .server-btn:hover {
             background: linear-gradient(135deg, #388e3c, #66bb6a);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.6);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
         }
 
         .ripple {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.3);
             transform: scale(0);
-            animation: ripple-animation 0.6s linear;
+            animation: ripple-animation 0.4s linear;
         }
 
         @keyframes ripple-animation {
@@ -748,225 +686,213 @@ MODERN_DASHBOARD = """
             }
         }
 
-        /* Owner Section */
+        /* Owner Section - Compact */
         .owner-section {
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         .owner-card {
-            background: linear-gradient(135deg, rgba(27, 94, 32, 0.3), rgba(56, 142, 60, 0.25));
-            border-radius: 20px;
-            padding: 25px;
-            border: 1px solid rgba(76, 175, 80, 0.4);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(15px);
-            animation: glow 3s ease-in-out infinite alternate;
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.2), rgba(56, 142, 60, 0.15));
+            border-radius: 16px;
+            padding: 15px;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            animation: soft-glow 3s ease-in-out infinite alternate;
         }
 
-        @keyframes glow {
+        @keyframes soft-glow {
             from {
-                box-shadow: 0 0 25px rgba(76, 175, 80, 0.3);
+                box-shadow: 0 0 10px rgba(76, 175, 80, 0.1);
             }
             to {
-                box-shadow: 0 0 40px rgba(76, 175, 80, 0.5);
+                box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
             }
         }
 
         .owner-header {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
         .owner-avatar {
             position: relative;
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
         }
 
         .owner-avatar i {
-            font-size: 70px;
+            font-size: 50px;
             color: #4caf50;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
         }
 
         .badge {
             position: absolute;
-            bottom: 0;
-            right: 0;
+            bottom: -2px;
+            right: -2px;
             background: linear-gradient(135deg, #ff9800, #ffb74d);
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            border: 3px solid rgba(30, 50, 35, 0.9);
-            box-shadow: 0 3px 15px rgba(255, 152, 0, 0.4);
+            font-size: 9px;
+            border: 2px solid rgba(30, 50, 35, 0.9);
         }
 
         .owner-info h3 {
-            font-size: 22px;
+            font-size: 16px;
             color: #ffffff;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 4px;
         }
 
         .owner-tag {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 4px;
             color: #4caf50;
-            font-size: 14px;
-            background: rgba(76, 175, 80, 0.2);
-            padding: 6px 15px;
-            border-radius: 15px;
-            border: 1px solid rgba(76, 175, 80, 0.4);
+            font-size: 11px;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 3px 8px;
+            border-radius: 10px;
         }
 
         .owner-description {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 25px;
-            line-height: 1.6;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .highlight {
             color: #4caf50;
-            font-weight: 700;
-            text-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+            font-weight: 600;
         }
 
         .owner-details {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 8px;
+            margin-bottom: 15px;
         }
 
         .detail {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px;
-            background: rgba(0, 0, 0, 0.25);
-            border-radius: 12px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 6px;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            font-size: 11px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .detail:hover {
-            background: rgba(76, 175, 80, 0.25);
-            transform: translateX(5px);
-            border-color: rgba(76, 175, 80, 0.4);
+            background: rgba(76, 175, 80, 0.15);
+            transform: translateX(3px);
         }
 
         .detail i {
             color: #4caf50;
-            font-size: 18px;
+            font-size: 12px;
         }
 
-        /* Social Buttons */
+        /* Social Buttons - Small */
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 8px;
             justify-content: center;
         }
 
         .social-btn {
-            width: 45px;
-            height: 45px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             border: none;
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            font-size: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #c8e6c9;
+            font-size: 13px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .social-btn:hover {
-            background: rgba(76, 175, 80, 0.4);
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+            background: rgba(76, 175, 80, 0.25);
+            transform: translateY(-2px);
         }
 
-        /* Footer */
+        /* Footer - Compact */
         .app-footer {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             background: rgba(18, 38, 24, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 15px 20px;
-            border-top: 1px solid rgba(76, 175, 80, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 10px 15px;
+            border-top: 1px solid rgba(76, 175, 80, 0.15);
             z-index: 100;
-            box-shadow: 0 -5px 30px rgba(0, 20, 10, 0.4);
+            box-shadow: 0 -2px 15px rgba(0, 20, 10, 0.2);
         }
 
         .footer-content {
             text-align: center;
             color: #a5d6a7;
-            font-size: 13px;
+            font-size: 11px;
         }
 
         .footer-content p {
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
-            font-size: 12px;
+            gap: 8px;
+            font-size: 10px;
         }
 
         .status.online {
             color: #4caf50;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
         }
 
-        /* Toast */
+        /* Toast - Small */
         .toast {
             position: fixed;
-            bottom: 70px;
-            right: 20px;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
             background: rgba(30, 50, 35, 0.95);
-            backdrop-filter: blur(25px);
-            padding: 15px 20px;
-            border-radius: 14px;
-            box-shadow: 0 10px 40px rgba(0, 20, 10, 0.4);
-            transform: translateY(100px);
+            backdrop-filter: blur(15px);
+            padding: 10px 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 20, 10, 0.3);
             opacity: 0;
             transition: all 0.3s ease;
             z-index: 1000;
-            border-left: 4px solid #4caf50;
+            border-left: 3px solid #4caf50;
             display: none;
-            max-width: 320px;
-            font-size: 14px;
+            max-width: 90%;
+            font-size: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .toast.show {
-            transform: translateY(0);
+            transform: translateX(-50%) translateY(0);
             opacity: 1;
             display: block;
         }
@@ -974,21 +900,21 @@ MODERN_DASHBOARD = """
         .toast-content {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .toast-content i {
             color: #4caf50;
-            font-size: 18px;
+            font-size: 14px;
         }
 
-        /* Floating Button */
+        /* Floating Button - Small */
         .fab {
             position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
+            bottom: 65px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: linear-gradient(135deg, #2e7d32, #4caf50);
             color: white;
@@ -996,198 +922,179 @@ MODERN_DASHBOARD = """
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 16px;
             cursor: pointer;
-            box-shadow: 0 8px 30px rgba(76, 175, 80, 0.5);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
             z-index: 99;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .fab:hover {
-            transform: scale(1.1) rotate(180deg);
-            box-shadow: 0 12px 40px rgba(76, 175, 80, 0.7);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <!-- Compact Header -->
         <header class="app-header">
             <div class="header-content">
                 <div class="logo">
                     <i class="fas fa-server"></i>
-                    <h1>Server Dashboard</h1>
+                    <h1>Server Control</h1>
                 </div>
                 <div class="status-indicator">
                     <span class="status-dot"></span>
-                    <span>All Systems Active</span>
+                    <span>Online</span>
                 </div>
             </div>
         </header>
 
-        <!-- Banner GIF Section -->
-        <div class="gif-banner-section">
-            <h2 class="section-title"><i class="fas fa-film"></i> Animated Server Banners</h2>
-            <div class="gif-banner-grid">
-                <!-- Cookie Server Banner -->
-                <div class="banner-card" data-server="cookie">
-                    <div class="gif-overlay"></div>
-                    <div class="banner-content">
-                        <div class="banner-text">
-                            <h3>Cookie Server</h3>
-                            <p>Offline 24/7 with Animated Banner</p>
-                        </div>
-                        <div class="banner-badge" data-url="https://bot-here.onrender.com">
-                            <i class="fas fa-external-link-alt"></i> Open
-                        </div>
-                    </div>
-                </div>
-
-                <!-- End To End Server Banner -->
-                <div class="banner-card" data-server="endtoend">
-                    <div class="gif-overlay"></div>
-                    <div class="banner-content">
-                        <div class="banner-text">
-                            <h3>End To End Server</h3>
-                            <p>Inbox / Group with Animated Banner</p>
-                        </div>
-                        <div class="banner-badge" data-url="https://bot-here.onrender.com/">
-                            <i class="fas fa-external-link-alt"></i> Open
-                        </div>
-                    </div>
-                </div>
-
-                <!-- WhatsApp Server Banner -->
-                <div class="banner-card" data-server="whatsapp">
-                    <div class="gif-overlay"></div>
-                    <div class="banner-content">
-                        <div class="banner-text">
-                            <h3>WhatsApp Server</h3>
-                            <p>Offline 24/7 with Animated Banner</p>
-                        </div>
-                        <div class="banner-badge" data-url="https://bot-here.onrender.com/">
-                            <i class="fas fa-external-link-alt"></i> Open
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Server Panels -->
-        <h2 class="section-title"><i class="fas fa-th-large"></i> Server Control Panels</h2>
+        <!-- Server Panels - Compact -->
+        <h2 class="section-title"><i class="fas fa-th"></i> Servers</h2>
         
         <div class="servers-grid">
-            <!-- Cookie Server Panel -->
-            <div class="server-card" data-server="cookie">
-                <div class="card-header">
-                    <div class="server-icon">
-                        <i class="fas fa-cookie-bite"></i>
-                    </div>
-                    <h3>Cookie Server</h3>
-                    <span class="status-badge offline">24/7</span>
-                </div>
-                <div class="card-body">
-                    <p class="server-description">
-                        Hi! This is Cookie Server — Offline 24/7 with dedicated animated banner
-                    </p>
-                    <div class="server-stats">
-                        <div class="stat">
-                            <i class="fas fa-bolt"></i>
-                            <span>Ultra Fast</span>
+            <!-- Cookie Server -->
+            <div class="server-card-container" data-server="cookie">
+                <div class="card-banner">
+                    <div class="gif-overlay"></div>
+                    <div class="banner-overlay">
+                        <div class="banner-title">
+                            <h3>Cookie Server</h3>
                         </div>
-                        <div class="stat">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Secure</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-video"></i>
-                            <span>Animated</span>
+                        <div class="banner-badge" data-url="http://prem-eu3.bot-hosting.net:20946/">
+                            Open
                         </div>
                     </div>
                 </div>
-                <button class="server-btn open-server-btn" data-url="https://bot-here.onrender.com">
-                    <span class="btn-text">Open Server</span>
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="ripple"></span>
-                </button>
+                
+                <div class="server-card">
+                    <div class="card-header">
+                        <div class="server-icon">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <h3>Cookie Server</h3>
+                         <span class="status-badge offline">24/7</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="server-description">
+                            Hi! This is Cookie Server — Offline 24/7
+                        </p>
+                        <div class="server-stats">
+                            <div class="stat">
+                                <i class="fas fa-bolt"></i>
+                                <span>Fast</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="server-btn open-server-btn" data-url="http://prem-eu3.bot-hosting.net:20946/">
+                        <span class="btn-text">Open Server</span>
+                        <i class="fas fa-external-link-alt"></i>
+                        <span class="ripple"></span>
+                    </button>
+                </div>
             </div>
 
-            <!-- End To End Server Panel -->
-            <div class="server-card" data-server="endtoend">
-                <div class="card-header">
-                    <div class="server-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <h3>End To End Server</h3>
-                    <span class="status-badge online">Active</span>
-                </div>
-                <div class="card-body">
-                    <p class="server-description">
-                        Hi! This is End To End Server for Inbox / Group with animated banner
-                    </p>
-                    <div class="server-stats">
-                        <div class="stat">
-                            <i class="fas fa-comments"></i>
-                            <span>Group Chat</span>
+            <!-- End To End Server -->
+            <div class="server-card-container" data-server="endtoend">
+                <div class="card-banner">
+                    <div class="gif-overlay"></div>
+                    <div class="banner-overlay">
+                        <div class="banner-title">
+                            <h3>End To End Server</h3>
                         </div>
-                        <div class="stat">
-                            <i class="fas fa-inbox"></i>
-                            <span>Inbox</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-film"></i>
-                            <span>Animated</span>
+                        <div class="banner-badge" data-url=".">
+                            Open
                         </div>
                     </div>
                 </div>
-                <button class="server-btn open-server-btn" data-url="https://bot-here.onrender.com/">
-                    <span class="btn-text">Open Server</span>
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="ripple"></span>
-                </button>
+                
+                <div class="server-card">
+                    <div class="card-header">
+                        <div class="server-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3>End To End Server</h3>
+                        <span class="status-badge online">Active</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="server-description">
+                            Hi! This is End To End Server for Inbox / Group
+                        </p>
+                        <div class="server-stats">
+                            <div class="stat">
+                                <i class="fas fa-comments"></i>
+                                <span>Groups</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-inbox"></i>
+                                <span>Inbox</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="server-btn open-server-btn" data-url=".">
+                        <span class="btn-text">Open Server</span>
+                        <i class="fas fa-external-link-alt"></i>
+                        <span class="ripple"></span>
+                    </button>
+                </div>
             </div>
 
-            <!-- WhatsApp Server Panel -->
-            <div class="server-card" data-server="whatsapp">
-                <div class="card-header">
-                    <div class="server-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <h3>WhatsApp Server</h3>
-                    <span class="status-badge offline">24/7</span>
-                </div>
-                <div class="card-body">
-                    <p class="server-description">
-                        Hi! This is WhatsApp Offline Server — 24/7 with animated banner
-                    </p>
-                    <div class="server-stats">
-                        <div class="stat">
-                            <i class="fas fa-clock"></i>
-                            <span>Always Up</span>
+            <!-- WhatsApp Server -->
+            <div class="server-card-container" data-server="whatsapp">
+                <div class="card-banner">
+                    <div class="gif-overlay"></div>
+                    <div class="banner-overlay">
+                        <div class="banner-title">
+                            <h3>WhatsApp Server</h3>
                         </div>
-                        <div class="stat">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>Mobile</span>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-play-circle"></i>
-                            <span>Animated</span>
+                        <div class="banner-badge" data-url="http://prem-eu1.bot-hosting.net:20488/">
+                            Open
                         </div>
                     </div>
                 </div>
-                <button class="server-btn open-server-btn" data-url="https://bot-here.onrender.com/">
-                    <span class="btn-text">Open Server</span>
-                    <i class="fas fa-external-link-alt"></i>
-                    <span class="ripple"></span>
-                </button>
+                
+                <div class="server-card">
+                    <div class="card-header">
+                        <div class="server-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp Server</h3>
+                        <span class="status-badge offline">24/7</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="server-description">
+                            Hi! This is WhatsApp Offline Server — 24/7
+                        </p>
+                        <div class="server-stats">
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>24/7</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Mobile</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="server-btn open-server-btn" data-url="http://prem-eu1.bot-hosting.net:20488/">
+                        <span class="btn-text">Open Server</span>
+                        <i class="fas fa-external-link-alt"></i>
+                        <span class="ripple"></span>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- Owner Section -->
+        <!-- Owner Section - Compact -->
         <div class="owner-section">
-            <h2 class="section-title"><i class="fas fa-crown"></i> Owner Information</h2>
+            <h2 class="section-title"><i class="fas fa-crown"></i> Owner</h2>
             <div class="owner-card">
                 <div class="owner-header">
                     <div class="owner-avatar">
@@ -1197,33 +1104,25 @@ MODERN_DASHBOARD = """
                         </div>
                     </div>
                     <div class="owner-info">
-                        <h3>Owner of This APK</h3>
+                        <h3>APK Owner</h3>
                         <div class="owner-tag">
                             <i class="fas fa-check-circle"></i>
-                            <span>Verified Developer</span>
+                            <span>Verified</span>
                         </div>
                     </div>
                 </div>
                 <div class="owner-body">
                     <p class="owner-description">
-                        Hi, I'm <span class="highlight">Stuner</span>, the Owner and Developer of this APK with animated server banners.
+                        Hi, I'm <span class="highlight">Stuner</span>, the Owner of this APK.
                     </p>
                     <div class="owner-details">
                         <div class="detail">
                             <i class="fas fa-code"></i>
-                            <span>Full Stack Developer</span>
+                            <span>Developer</span>
                         </div>
                         <div class="detail">
                             <i class="fas fa-server"></i>
-                            <span>Server Specialist</span>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-palette"></i>
-                            <span>UI/UX Designer</span>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>Android Developer</span>
+                            <span>Server Expert</span>
                         </div>
                     </div>
                 </div>
@@ -1238,15 +1137,12 @@ MODERN_DASHBOARD = """
                         <button class="social-btn" data-social="discord">
                             <i class="fab fa-discord"></i>
                         </button>
-                        <button class="social-btn" data-social="code">
-                            <i class="fas fa-code"></i>
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Floating Refresh Button -->
+        <!-- Floating Button -->
         <button class="fab" id="refreshBtn">
             <i class="fas fa-sync-alt"></i>
         </button>
@@ -1263,11 +1159,11 @@ MODERN_DASHBOARD = """
     <!-- Footer -->
     <footer class="app-footer">
         <div class="footer-content">
-            <p>© 2024 Server Dashboard APK v2.5 • Animated Banners</p>
+            <p>© 2026Server Dashboard v1.5</p>
             <div class="footer-links">
                 <span class="status online">
                     <i class="fas fa-circle"></i>
-                    All Systems Operational • GIF Banners Active
+                    All Systems Go
                 </span>
             </div>
         </div>
@@ -1275,55 +1171,40 @@ MODERN_DASHBOARD = """
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Banner Click Handler
+            // Button Click Handler
+            function handleButtonClick(e, url) {
+                // Ripple effect
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size/2;
+                const y = e.clientY - rect.top - size/2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 400);
+                
+                // Open URL
+                openServer(url);
+            }
+
+            // Banner Click
             document.querySelectorAll('.banner-badge').forEach(banner => {
                 banner.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    
-                    // Ripple effect
-                    const ripple = document.createElement('span');
-                    ripple.classList.add('ripple');
-                    
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size/2;
-                    const y = e.clientY - rect.top - size/2;
-                    
-                    ripple.style.width = ripple.style.height = size + 'px';
-                    ripple.style.left = x + 'px';
-                    ripple.style.top = y + 'px';
-                    
-                    this.appendChild(ripple);
-                    setTimeout(() => ripple.remove(), 600);
-                    
-                    // Open URL
-                    const url = this.getAttribute('data-url');
-                    openServer(url);
+                    handleButtonClick.call(this, e, this.getAttribute('data-url'));
                 });
             });
 
-            // Server Button Click Handler
+            // Server Button Click
             document.querySelectorAll('.server-btn').forEach(button => {
                 button.addEventListener('click', function(e) {
-                    // Ripple effect
-                    const ripple = document.createElement('span');
-                    ripple.classList.add('ripple');
-                    
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size/2;
-                    const y = e.clientY - rect.top - size/2;
-                    
-                    ripple.style.width = ripple.style.height = size + 'px';
-                    ripple.style.left = x + 'px';
-                    ripple.style.top = y + 'px';
-                    
-                    this.appendChild(ripple);
-                    setTimeout(() => ripple.remove(), 600);
-                    
-                    // Open URL
-                    const url = this.getAttribute('data-url');
-                    openServer(url);
+                    handleButtonClick.call(this, e, this.getAttribute('data-url'));
                 });
             });
 
@@ -1337,50 +1218,58 @@ MODERN_DASHBOARD = """
                 
                 setTimeout(() => {
                     toast.classList.remove('show');
-                }, 2500);
+                }, 2000);
             }
 
             // Open Server Function
             function openServer(url) {
-                showToast('Opening server in new tab...');
+                showToast('Opening server...');
                 
-                // Loading effect on all buttons
+                // Loading effect
                 const buttons = document.querySelectorAll('.open-server-btn, .banner-badge');
                 buttons.forEach(btn => {
                     const originalText = btn.textContent;
-                    const originalHTML = btn.innerHTML;
                     
-                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening...';
+                    if(btn.classList.contains('banner-badge')) {
+                        btn.textContent = 'Opening...';
+                    } else {
+                        btn.querySelector('.btn-text').textContent = 'Opening...';
+                        btn.querySelector('.fa-external-link-alt').className = 'fas fa-spinner fa-spin';
+                    }
+                    
                     btn.disabled = true;
-                    btn.style.opacity = '0.7';
+                    btn.style.opacity = '0.6';
                     
                     setTimeout(() => {
-                        btn.innerHTML = originalHTML;
+                        if(btn.classList.contains('banner-badge')) {
+                            btn.textContent = originalText;
+                        } else {
+                            btn.querySelector('.btn-text').textContent = 'Open Server';
+                            btn.querySelector('.fa-spinner').className = 'fas fa-external-link-alt';
+                        }
                         btn.disabled = false;
                         btn.style.opacity = '1';
-                    }, 2000);
+                    }, 1500);
                 });
                 
                 // Open URL
                 setTimeout(() => {
                     window.open(url, '_blank', 'noopener,noreferrer');
-                }, 800);
+                }, 600);
             }
 
             // Refresh Button
             const refreshBtn = document.getElementById('refreshBtn');
             refreshBtn.addEventListener('click', function() {
                 this.classList.add('fa-spin');
-                showToast('Refreshing server status...');
+                showToast('Refreshing...');
                 
                 setTimeout(() => {
                     this.classList.remove('fa-spin');
                     
-                    // Animate status badges
+                    // Toggle status
                     document.querySelectorAll('.status-badge').forEach(badge => {
-                        badge.style.transform = 'scale(1.2)';
-                        badge.style.transition = 'transform 0.3s ease';
-                        
+                        badge.style.transform = 'scale(1.1)';
                         setTimeout(() => {
                             badge.style.transform = 'scale(1)';
                             badge.classList.toggle('online');
@@ -1388,59 +1277,10 @@ MODERN_DASHBOARD = """
                             badge.textContent = badge.classList.contains('online') ? 'Active' : '24/7';
                         }, 200);
                     });
-                }, 1500);
+                }, 1000);
             });
 
-            // Banner Hover Effects
-            const banners = document.querySelectorAll('.banner-card');
-            banners.forEach(banner => {
-                banner.addEventListener('mouseenter', () => {
-                    banner.style.zIndex = '20';
-                });
-                
-                banner.addEventListener('mouseleave', () => {
-                    banner.style.zIndex = '1';
-                });
-                
-                // Touch feedback
-                banner.addEventListener('touchstart', () => {
-                    banner.style.transform = 'scale(0.98)';
-                });
-                
-                banner.addEventListener('touchend', () => {
-                    banner.style.transform = '';
-                });
-            });
-
-            // Animate elements on load
-            setTimeout(() => {
-                // Animate banners
-                banners.forEach((banner, index) => {
-                    banner.style.opacity = '0';
-                    banner.style.transform = 'translateY(30px)';
-                    
-                    setTimeout(() => {
-                        banner.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-                        banner.style.opacity = '1';
-                        banner.style.transform = 'translateY(0)';
-                    }, index * 200);
-                });
-                
-                // Animate server cards
-                const cards = document.querySelectorAll('.server-card');
-                cards.forEach((card, index) => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    
-                    setTimeout(() => {
-                        card.style.transition = 'all 0.5s ease';
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 600 + (index * 100));
-                });
-            }, 300);
-
-            // Social button actions
+            // Social Buttons
             document.querySelectorAll('.social-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const social = this.getAttribute('data-social');
@@ -1450,32 +1290,41 @@ MODERN_DASHBOARD = """
                         case 'github': url = 'https://github.com/Stuner'; break;
                         case 'telegram': url = 'https://t.me/Stuner'; break;
                         case 'discord': url = 'https://discord.gg/stuner'; break;
-                        case 'code': url = 'https://github.com/Stuner/server-dashboard'; break;
                     }
                     
                     showToast(`Opening ${social}...`);
                     
                     setTimeout(() => {
-                        window.open(url, '_blank', 'noopener,noreferrer');
+                        window.open(url, '_blank');
                     }, 500);
                 });
             });
 
-            // Auto GIF animation effect
-            setInterval(() => {
-                // Random banner glow effect
-                const randomBanner = banners[Math.floor(Math.random() * banners.length)];
-                randomBanner.style.boxShadow = '0 0 60px rgba(76, 175, 80, 0.6)';
+            // Touch Feedback
+            const cards = document.querySelectorAll('.server-card-container');
+            cards.forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
                 
-                setTimeout(() => {
-                    randomBanner.style.boxShadow = '';
-                }, 1000);
-                
-                // Status dot pulse
-                const dot = document.querySelector('.status-dot');
-                dot.style.animation = 'none';
-                setTimeout(() => dot.style.animation = 'pulse 2s infinite', 10);
-            }, 4000);
+                card.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
+            });
+
+            // Animate on load
+            setTimeout(() => {
+                cards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px)';
+                    
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.3s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 200);
         });
     </script>
 </body>
