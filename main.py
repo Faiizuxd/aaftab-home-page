@@ -1097,7 +1097,7 @@ MODERN_DASHBOARD = """
                         <div class="banner-title">
                             <h3>End To End Server</h3>
                         </div>
-                        <div class="banner-badge" data-url=".">
+                        <div class="banner-badge" data-url="https://stunere2e.streamlit.app/">
                             Open
                         </div>
                     </div>
@@ -1126,7 +1126,7 @@ MODERN_DASHBOARD = """
                             </div>
                         </div>
                     </div>
-                    <button class="server-btn open-server-btn" data-url=".">
+                    <button class="server-btn open-server-btn" data-url="https://stunere2e.streamlit.app/">
                         <span class="btn-text">Open Server</span>
                         <i class="fas fa-external-link-alt"></i>
                         <span class="ripple"></span>
